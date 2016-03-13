@@ -31,7 +31,7 @@ RUN rpmdb --rebuilddb && \
 
 RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 RUN rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-RUN yum -y install jenkins
+RUN yum -y install java jenkins
 
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py

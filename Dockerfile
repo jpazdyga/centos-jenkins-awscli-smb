@@ -38,6 +38,7 @@ RUN rpmdb --rebuilddb && \
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 RUN useradd -d "$JENKINS_HOME" -u 1000 -m -s /bin/bash jenkins
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 VOLUME /var/jenkins_home
 RUN chown -R jenkins "$JENKINS_HOME" /usr/share/jenkins/ref
 
